@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<form action="index.php" method="POST">
+    <h5>Modifier un utilisateur</h5>
+    Identifiant : <input type="text" name="username"required><br>
+    Mail : <input type="email" name="mail" required><br>
+    Mot de passe : <input type="password" name="mdp" required><br>
+    Confirmez le mot de passe : <input type="password" name="mdpconfirm"required><br>
+
+    <input type="hidden" name="controleur" value="parametres">
+    <input type="hidden" name="action" value="ajouter_utilisateur">
+    <input type="submit" class="btn btn-secondary" value="Modifier">
+    <input type="reset" class="btn btn-danger" value="Annuler">
+
+</form>
+
+{% endblock %}

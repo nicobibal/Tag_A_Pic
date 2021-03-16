@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<form action="index.php" method="post" class="formTag">
+    <h6>Tagger</h6>
+    <input type="text" name="" class="form-control" placeholder="trier par tag"><br>
+
+    <button>Tout sélectionner/déselectionner</button>
+
+    <div class="basTag">
+        <div class="tagimg">
+
+        </div>
+
+        <div class="btnTag">
+            <button>Ajouter un tag</button>
+            <button>Valider</button>
+        </div>
+    </div>
+
+    <input type="hidden" name="controleur" value="tagger">
+    <input type="hidden" name="action" value="tagger">
+</form>
+
+{% endblock %}

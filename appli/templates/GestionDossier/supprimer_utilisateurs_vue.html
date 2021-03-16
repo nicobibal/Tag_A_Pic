@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<form action="index.php" method="post">
+    <h5>Supprimer un utilisateur</h5>
+    <input type="text" name="username" required>
+
+    <input type="submit" class="btn btn-secondary" value="Supprimer">
+    <input type="reset" class="btn btn-danger" value="Annuler">
+</form>
+
+{% endblock %}
