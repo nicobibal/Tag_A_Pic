@@ -11,48 +11,18 @@
 <body>
 <nav class="navbar navbar-light bg-light couleurperso">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="/accueil/">
                 <img src="{% static 'img/logo_seul.png' %}" id="logoseul" alt="" width="30" height="24" class="d-inline-block align-top"> Tag a pic
             </a>
 
-            <form action="#" method="POST" id="form1">
-                <input type="hidden" name="controleur" value="demarrage">
-                <input type="hidden" name="action" value="accueil">
-                <input type="submit" class="btn btn-secondary" value="Accueil">
-            </form>
-                <form action="#" method="POST">
-                        <input type="hidden" name="controleur" value="connexion">
-                        <input type="hidden" name="action" value="connexion">
-                        <input type="submit" class="btn btn-secondary" value="Connexion">
-                    </form>;
+            <a class="navbar-brand" href="/accueil/"> Accueil </a>
+            <a class="navbar-brand" href="/connexion/"> Connexion </a>
+            <a class="navbar-brand" href="/connexion/"> Dossier (pas lien) </a>
+            <a class="navbar-brand" href="/importer/"> Importer </a>
+            <a class="navbar-brand" href="/tag/"> Tagger </a>
+            <a class="navbar-brand" href="/connexion/"> Nuage (pas lien) </a>
+            <a class="navbar-brand" href="/choixParam/"> Paramètres </a>
 
-
-            <form action="#" method="POST">
-                <input type="hidden" name="controleur" value="demarrage">
-                <input type="hidden" name="action" value="connexion">
-                <input type="submit" class="btn btn-secondary" value="Dossier">
-            </form>
-
-            <form action="#" method="POST">
-                <input type="hidden" name="controleur" value="importer">
-                <input type="hidden" name="action" value="importer">
-                <input type="submit" class="btn btn-secondary" value="Importer">
-            </form>
-            <form action="#" method="POST">
-                <input type="hidden" name="controleur" value="tagger">
-                <input type="hidden" name="action" value="tagger">
-                <input type="submit" class="btn btn-secondary" value="Tagger">
-            </form>
-            <form action="#" method="POST">
-                <input type="hidden" name="controleur" value="demarrage">
-                <input type="hidden" name="action" value="connexion">
-                <input type="submit" class="btn btn-secondary" value="Nuage">
-            </form>
-            <form action="#" method="POST">
-                <input type="hidden" name="controleur" value="parametres">
-                <input type="hidden" name="action" value="choix">
-                <input type="submit" class="btn btn-secondary" value="Paramètres">
-            </form>
         </div>
     </nav>
 

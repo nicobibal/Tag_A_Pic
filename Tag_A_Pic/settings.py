@@ -81,7 +81,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'tagapic',
         'USER': 'root',
-        'PASSWORD': 'test',
+        'PASSWORD': '',
         'HOST': 'localhost',
     }
 }
