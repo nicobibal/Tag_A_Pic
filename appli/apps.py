@@ -2,4 +2,4 @@ from django.apps import AppConfig
 
 
 class DownloadConfig(AppConfig):
-    name = 'Download'
+    name = 'appli'

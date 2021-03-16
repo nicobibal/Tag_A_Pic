@@ -1,0 +1,7 @@
+<h1> Voici les images : </h1>
+{% for image in images %}
+{% load static %}
+    <img src="{% static ''%}{{ image.chemin }} ">
+{% empty %}
+    <p>Aucune Photo.</p>
+{% endfor %}
