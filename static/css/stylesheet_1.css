@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css?family=Muli');
+@import url('https://fonts.googleapis.com/css?family=Scope+One');
+html {
+    font-family: 'Muli', sans-serif;
+}
+
+head,
+footer,
+body {
+    display: block;
+    font-family: 'Muli', sans-serif;
+    background-color: #D1F2EB;
+}
+
+.middle {
+    display: flex;
+}
+
+.middle form {
+    flex: 2;
+    margin: 100px;
+}
+
+.logo {
+    top: 50px;
+    left: 0;
+    font-weight: bold;
+    font-style: italic;
+    text-align: center;
+    font-size: small;
+}
+
+.logo img {
+    height: 350px;
+}
+
+@media screen and (min-width: 800px) {
+    .logo {
+        position: absolute;
+        top: 100px;
+        left: 400px;
+        font-weight: bold;
+        font-style: italic;
+        font-size: large;
+    }
+}
+
+#logoseul {
+    height: 100%;
+}
+
+.couleurperso {
+    background-color: #82a3a1!important;
+}
+
+nav {
+    width: 100%!important;
+}
+
+.basTag {
+    margin-top: 50px;
+    display: flex;
+}
+
+.tagimg {
+    flex: 2;
+}
+
+.tagimg img {
+    width: 150px;
+}
+
+.btnTag {
+    flex: 1;
+}
+
+.btnParam {
+    left: 30%;
+    position: absolute;
+}
+
+.choixParam {
+    position: absolute;
+    display: inline;
+    left: 8%;
+}
+
+@media screen and (min-width: 800px) {
+    .btnParam {
+        left: 44%;
+        position: absolute;
+    }
+    .choixParam {
+        left: 38%;
+    }
+}

@@ -1,6 +1,9 @@
-<h1>Bonjour c'est index</h1>
+{% extends 'base.html' %}
 
 
+
+
+{% block content %}
 
 <form action="/go/" method="post">{% csrf_token %}
   <div class="container">
@@ -33,3 +36,5 @@
 </form>
 
 <a href="/afficher/">Afficher les photos</a>
+
+{% endblock %}

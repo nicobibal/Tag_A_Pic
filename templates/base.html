@@ -1,0 +1,63 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TagAPic</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <link rel="stylesheet" href = "{% static 'css/stylesheet_1.css' %}">
+</head>
+<body>
+<nav class="navbar navbar-light bg-light couleurperso">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="{% static 'img/logo_seul.png' %}" id="logoseul" alt="" width="30" height="24" class="d-inline-block align-top"> Tag a pic
+            </a>
+
+            <form action="#" method="POST" id="form1">
+                <input type="hidden" name="controleur" value="demarrage">
+                <input type="hidden" name="action" value="accueil">
+                <input type="submit" class="btn btn-secondary" value="Accueil">
+            </form>
+                <form action="#" method="POST">
+                        <input type="hidden" name="controleur" value="connexion">
+                        <input type="hidden" name="action" value="connexion">
+                        <input type="submit" class="btn btn-secondary" value="Connexion">
+                    </form>;
+
+
+            <form action="#" method="POST">
+                <input type="hidden" name="controleur" value="demarrage">
+                <input type="hidden" name="action" value="connexion">
+                <input type="submit" class="btn btn-secondary" value="Dossier">
+            </form>
+
+            <form action="#" method="POST">
+                <input type="hidden" name="controleur" value="importer">
+                <input type="hidden" name="action" value="importer">
+                <input type="submit" class="btn btn-secondary" value="Importer">
+            </form>
+            <form action="#" method="POST">
+                <input type="hidden" name="controleur" value="tagger">
+                <input type="hidden" name="action" value="tagger">
+                <input type="submit" class="btn btn-secondary" value="Tagger">
+            </form>
+            <form action="#" method="POST">
+                <input type="hidden" name="controleur" value="demarrage">
+                <input type="hidden" name="action" value="connexion">
+                <input type="submit" class="btn btn-secondary" value="Nuage">
+            </form>
+            <form action="#" method="POST">
+                <input type="hidden" name="controleur" value="parametres">
+                <input type="hidden" name="action" value="choix">
+                <input type="submit" class="btn btn-secondary" value="Paramètres">
+            </form>
+        </div>
+    </nav>
+
+    {% block content %}
+    {% endblock %}
+
+</body>
+</html>
