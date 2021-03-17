@@ -1,8 +1,5 @@
 {% extends 'base.html' %}
 
-
-
-
 {% block content %}
 
 <form action="/go/" method="post">{% csrf_token %}
@@ -17,7 +14,9 @@
         <label>dernières photos</label>
         <br><br>
         <label for="inputDate">Télécharger les publications depuis le </label>
-          <input type="date" id="start" name="date" min="2018-01-01" max="2021-12-31">
+          <input type="date" id="start" name="dateStart" >
+          <input type="date" id="end" name="dateEnd" >
+
         <br><br>
           <label for="inputRep">Importer les images dans :</label>
         <select class="form-select" aria-label="Default select example">

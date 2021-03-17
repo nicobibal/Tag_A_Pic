@@ -8,11 +8,12 @@ def index(request):
 
 def usernameForme(request):
     if request.method == 'POST':
-
         Image.downloadImageFromUsername(request.POST['username'])
-        images =  Image.objects.all()
-        print(images)
+        return render(request, 'Download/index.html')
 
+def usernameFormDate(request):
+    if request.method == 'POST':
+        Image.downloadPictureInSpecificPeriod(request.POST['dateStart'],request.POST['dateEnd'],request.POST['username'])
         return render(request, 'Download/index.html')
 
 def afficher(request):
