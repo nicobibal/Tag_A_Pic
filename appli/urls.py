@@ -3,6 +3,8 @@ from django.urls import path
 
 urlpatterns = [
     path('', views.index),
-    path('go/', views.usernameForme, name='search'),
+    path('DownloadByUsername/', views.usernameForme),
+    path('DownloadByDate/', views.usernameFormDate,),
+    path('DownloadByLiked/', views.usernameFormLiked),
     path('afficher/', views.afficher),
 ]
