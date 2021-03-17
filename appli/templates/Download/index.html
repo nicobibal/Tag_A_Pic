@@ -1,11 +1,8 @@
 {% extends 'base.html' %}
 
-
-
-
 {% block content %}
 
-<form action="/go/" method="post">{% csrf_token %}
+<form action="/DownloadByUsername/" method="post">{% csrf_token %}
   <div class="container">
     <div class="row">
       <div class="col-sm">
@@ -14,10 +11,65 @@
         <br><br>
         <label>Télécharger les</label>
           <input type="number" class="form-control" name="nbPhotos" placeholder="100">
-        <label>dernières photos</label>
+        <label>derniers posts</label>
+
         <br><br>
+          <label for="inputRep">Importer les images dans :</label>
+        <select class="form-select" aria-label="Default select example">
+          <option selected>Open this select menu</option>
+          <option value="1">One</option>
+          <option value="2">Two</option>
+          <option value="3">Three</option>
+        </select>
+        <br><br>
+          <input type="hidden" name="controleur" value="importer">
+          <input type="hidden" name="action" value="valider">
+          <input type="submit" class="btn btn-primary" value="Importer">
+      </div>
+    </div>
+  </div>
+</form>
+
+    <form action="/DownloadByDate/" method="post">{% csrf_token %}
+  <div class="container">
+    <div class="row">
+      <div class="col-sm">
+        <label for="inputNomUser">Nom d'utilisateur :</label>
+          <input type="text" class="form-control" name="username" placeholder="@">
+        <br><br>
+
         <label for="inputDate">Télécharger les publications depuis le </label>
-          <input type="date" id="start" name="date" min="2018-01-01" max="2021-12-31">
+          <input type="date" id="start" name="dateStart" >
+          <input type="date" id="end" name="dateEnd" >
+
+        <br><br>
+          <label for="inputRep">Importer les images dans :</label>
+        <select class="form-select" aria-label="Default select example">
+          <option selected>Open this select menu</option>
+          <option value="1">One</option>
+          <option value="2">Two</option>
+          <option value="3">Three</option>
+        </select>
+        <br><br>
+          <input type="hidden" name="controleur" value="importer">
+          <input type="hidden" name="action" value="valider">
+          <input type="submit" class="btn btn-primary" value="Importer">
+      </div>
+    </div>
+  </div>
+</form>
+
+    <form action="/DownloadByLiked/" method="post">{% csrf_token %}
+  <div class="container">
+    <div class="row">
+      <div class="col-sm">
+        <label for="inputNomUser">Nom d'utilisateur :</label>
+          <input type="text" class="form-control" name="username" placeholder="@">
+        <br><br>
+        <label>Télécharger les</label>
+          <input type="number" class="form-control" name="pourcentage" placeholder="100">
+        <label> % les plus aimés</label>
+
         <br><br>
           <label for="inputRep">Importer les images dans :</label>
         <select class="form-select" aria-label="Default select example">
