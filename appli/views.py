@@ -4,22 +4,22 @@ from .models import Image
 
 
 def index(request):
-    return render(request, 'Download/index.html')
+    return render(request, 'Download/templates/Importer/import.html')
 
 def usernameForme(request):
     if request.method == 'POST':
         Image.downloadImageFromUsername(request.POST['username'], request.POST['nbPhotos'])
-        return render(request, 'Download/index.html')
+        return render(request, 'Importer/import.html')
 
 def usernameFormDate(request):
     if request.method == 'POST':
         Image.downloadPictureInSpecificPeriod(request.POST['dateStart'],request.POST['dateEnd'],request.POST['username'])
-        return render(request, 'Download/index.html')
+        return render(request, 'Download/templates/Importer/import.html')
 
 def usernameFormLiked(request):
     if request.method == 'POST':
         Image.downloadPictureMostLiked(request.POST['username'],request.POST['pourcentage'])
-        return render(request, 'Download/index.html')
+        return render(request, 'Download/templates/Importer/import.html')
 
 def afficher(request):
     images = Image.objects.all()
@@ -44,7 +44,7 @@ def gererUser(request):
     return render(request, 'GestionUtilisateur/gerer_utilisateurs_vue.html')
 
 def importer(request):
-    return render(request, 'Importer/importer_vue.html')
+    return render(request, 'Importer/import.html')
 
 def modifUser(request):
     return render(request, 'GestionUtilisateur/modifier_utilisateurs_vue.html')
