@@ -1,10 +1,10 @@
 from django.http import HttpResponse
 from django.shortcuts import render
-from .models import Image
+from appli.models import Image, Tag
 
 
 def index(request):
-    return render(request, 'Download/templates/Importer/import.html')
+    return render(request, 'Importer/import.html')
 
 def usernameForme(request):
     if request.method == 'POST':
@@ -14,16 +14,16 @@ def usernameForme(request):
 def usernameFormDate(request):
     if request.method == 'POST':
         Image.downloadPictureInSpecificPeriod(request.POST['dateStart'],request.POST['dateEnd'],request.POST['username'])
-        return render(request, 'Download/templates/Importer/import.html')
+        return render(request, 'Importer/import.html')
 
 def usernameFormLiked(request):
     if request.method == 'POST':
         Image.downloadPictureMostLiked(request.POST['username'],request.POST['pourcentage'])
-        return render(request, 'Download/templates/Importer/import.html')
+        return render(request, 'Importer/import.html')
 
 def afficher(request):
     images = Image.objects.all()
-    return render(request, 'Download/images.html', {'images': images} )
+    return render(request, 'Download/images.html', {'images': images})
 
 def accueil(request):
     return render(request, 'Accueil/accueil_vue.html')
@@ -59,7 +59,12 @@ def supprimerUser(request):
     return render(request, 'GestionUtilisateur/supprimer_utilisateurs_vue.html')
 
 def tag(request):
-    return render(request, 'Tag/tagger_vue.html')
+    if request.method == 'POST':
+        tag = Tag(nom= request.POST['tag'])
+        tag.save()
+    tags = Tag.objects.all()
+    return render(request, 'Tag/tagger_vue.html', {'tags' : tags})
+
 
 
 
