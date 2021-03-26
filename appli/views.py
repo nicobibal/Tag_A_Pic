@@ -78,7 +78,7 @@ def tagOneImage(request, image_id):
             image.save()
             form.save_m2m()
     else:
-        form = ImageForm()
+        form = ImageForm(instance=image)
     return render(request, 'Tag/tag_one_image.html',{'image' : image, 'image_form': form} )
 
 
