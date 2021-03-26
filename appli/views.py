@@ -70,10 +70,10 @@ def tag(request):
 
 def tagOneImage(request, image_id):
     image = Image.objects.get(pk=image_id)
-    print(image)
     if request.method == 'POST':
-        form = ImageForm(data=request.POST)
+        form = ImageForm(data=request.POST, instance=image)
         if form.is_valid():
+
             image = form.save(commit=False)
             image.save()
             form.save_m2m()
