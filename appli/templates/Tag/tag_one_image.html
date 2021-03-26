@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+    {% load static %}
+
+    <img src="{% static ''%}{{ image.chemin }} " alt="">
+
+
+<form action="/afficher/taggerphoto/{{ image.id }}/" method="post">
+    {% csrf_token %}
+    {{ image_form }}
+    <input type="submit" value="Submit">
+</form>
+
+{% endblock %}

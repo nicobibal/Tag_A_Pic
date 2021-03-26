@@ -7,10 +7,17 @@ from django.db import models
 import instaloader
 from instaloader import Instaloader
 
+from appli.models.tag import Tag
+
 
 class Image(models.Model):
-    chemin = models.CharField(max_length=100, default='');
+    chemin = models.CharField(max_length=100, default='')
+    username = models.CharField(max_length=50, default='')
+    tags = models.ManyToManyField(Tag)
+
+
     insta = Instaloader()
+    insta.login('tagapic2021','Tag-A-Pic2021')
     insta.download_comments = False
     insta.save_metadata = False
     insta.download_geotags = False
@@ -23,7 +30,7 @@ class Image(models.Model):
     def downloadImageFromUsername( username, nbPhotos, insta=insta):
         i = 0
         profile = instaloader.Profile.from_username(insta.context, username)
-        print("nn" + nbPhotos)
+
         for post in profile.get_posts():
             if(nbPhotos != ''):
                 if(i>=int(nbPhotos)):
@@ -40,7 +47,8 @@ class Image(models.Model):
         for path_to_file in path_to_file_list:
             cheminImage = "ImagesInsta/" + username + "/" + os.path.basename(path_to_file)
             image = Image(
-                chemin= cheminImage)
+                chemin= cheminImage, username= username
+            )
             image.save()
 
 
@@ -80,7 +88,7 @@ class Image(models.Model):
         for path_to_file in path_to_file_list:
             cheminImage = "ImagesInsta/" + username + "/" + os.path.basename(path_to_file)
             image = Image(
-                chemin=cheminImage)
+                chemin=cheminImage, username=username)
             image.save()
 
     def downloadPictureMostLiked(username, pourcentage, instas=insta):
@@ -103,5 +111,5 @@ class Image(models.Model):
         for path_to_file in path_to_file_list:
             cheminImage = "ImagesInsta/" + username + "/" + os.path.basename(path_to_file)
             image = Image(
-                chemin=cheminImage)
+                chemin=cheminImage, username=username)
             image.save()

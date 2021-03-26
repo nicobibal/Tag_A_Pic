@@ -19,5 +19,6 @@ urlpatterns = [
     path('nouvelUser/', views.nouvelUser),
     path('supprimerUser/', views.supprimerUser),
     path('tag/', views.tag),
+    path('afficher/taggerphoto/<int:image_id>/', views.tagOneImage),
 
 ]

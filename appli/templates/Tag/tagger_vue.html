@@ -2,30 +2,13 @@
 
 
 {% block content %}
-
-<form action="index.php" method="post" class="formTag">
-    <h6>Tagger</h6>
-    <input type="text" name="" class="form-control" placeholder="trier par tag"><br>
-
-    <button>Tout sélectionner/déselectionner</button>
-
-    <div class="basTag">
-        <div class="tagimg">
-
-        </div>
-
-        <div class="btnTag">
-            <button>Valider</button>
-        </div>
-    </div>
 </form>
 
     <form action="/tag/" method="post" class="formTag">{% csrf_token %}
         <input type="text" name="tag" class="form-control" placeholder="Tag à ajouter"><br>
         <input type="submit" class="btn btn-primary" value="Ajouter">
-
-
     </form>
+
 
     <ul class="list-group">
     {% for tag in tags %}

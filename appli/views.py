@@ -1,6 +1,9 @@
 from django.http import HttpResponse
 from django.shortcuts import render
-from appli.models import Image, Tag
+
+from appli.forms import ImageForm
+from appli.models.image import Image
+from appli.models.tag import Tag
 
 
 def index(request):
@@ -64,6 +67,19 @@ def tag(request):
         tag.save()
     tags = Tag.objects.all()
     return render(request, 'Tag/tagger_vue.html', {'tags' : tags})
+
+def tagOneImage(request, image_id):
+    image = Image.objects.get(pk=image_id)
+    print(image)
+    if request.method == 'POST':
+        form = ImageForm(data=request.POST)
+        if form.is_valid():
+            image = form.save(commit=False)
+            image.save()
+            form.save_m2m()
+    else:
+        form = ImageForm()
+    return render(request, 'Tag/tag_one_image.html',{'image' : image, 'image_form': form} )
 
 
 
