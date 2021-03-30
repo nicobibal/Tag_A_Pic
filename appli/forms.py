@@ -13,5 +13,5 @@ class ImageForm(forms.ModelForm):
         exclude = ['chemin','username']
         fields= ['tags']
 
-    tags = CustomMMCF(queryset=Tag.objects.all(), required=False, widget=forms.CheckboxSelectMultiple)
+    tags = CustomMMCF(queryset=Tag.objects.order_by('nom'), required=False, widget=forms.CheckboxSelectMultiple)
 
