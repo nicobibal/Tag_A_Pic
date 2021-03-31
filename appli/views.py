@@ -4,6 +4,7 @@ from django.shortcuts import render
 from appli.forms import ImageForm
 from appli.models.image import Image
 from appli.models.tag import Tag
+from polls import models
 
 
 def index(request):
@@ -81,6 +82,21 @@ def tagOneImage(request, image_id):
         form = ImageForm(instance=image)
     return render(request, 'Tag/tag_one_image.html',{'image' : image, 'image_form': form} )
 
+def selection(request):
+    tags = Tag.objects.order_by('nom')
+    return render(request, 'Selection/selection.html', {'tags':tags})
+
+def chercher(request):
+    tags = request.POST.getlist('tag')
+
+    if request.POST['selectionchoix'] == 'union':
+        images=Image.objects.filter(tags__in=tags).distinct()
+    if request.POST['selectionchoix'] == 'intersection':
+        images = Image.objects
+        for tag in tags:
+            images = images.filter(tags__in=[tag])
+
+    return render(request, 'Selection/resultatFiltre.html', {'images': images})
 
 
 

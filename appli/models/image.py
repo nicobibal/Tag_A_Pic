@@ -17,7 +17,6 @@ class Image(models.Model):
 
 
     insta = Instaloader()
-    insta.login('tagapic2021','Tag-A-Pic2021')
     insta.download_comments = False
     insta.save_metadata = False
     insta.download_geotags = False
