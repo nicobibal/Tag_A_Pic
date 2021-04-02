@@ -99,6 +99,9 @@ def chercher(request):
     return render(request, 'Selection/resultatFiltre.html', {'images': images})
 
 
+def nuage(request):
+    return render(request, 'Nuage/nuage.html')
+
 
 
 

@@ -21,6 +21,6 @@ urlpatterns = [
     path('tag/', views.tag),
     path('afficher/taggerphoto/<int:image_id>/', views.tagOneImage),
     path('selection/', views.selection),
-    path('chercher/', views.chercher),
+    path('nuage/', views.nuage),
 
 ]
