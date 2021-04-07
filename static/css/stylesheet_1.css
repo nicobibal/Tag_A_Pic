@@ -305,3 +305,8 @@ nav {
     flex-direction : column;
     width : 100%;
 }
+
+.nuagePhotoDossier {
+    float : right
+
+}

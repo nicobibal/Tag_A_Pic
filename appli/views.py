@@ -118,8 +118,11 @@ def ouvrirDossier(request, dossier_id):
 
 
 
-def nuage(request):
-    return render(request, 'Nuage/nuage.html')
+def nuage(request, dossier_id):
+    images=Image.objects.filter(dossier__pk=dossier_id)
+    dossier = Dossier.objects.get(pk=dossier_id)
+    return render(request, 'Dossier/nuage.html', {'images': images, 'dossier': dossier})
+
 
 
 

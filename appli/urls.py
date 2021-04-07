@@ -25,6 +25,6 @@ urlpatterns = [
     path('chercher/', views.chercher),
     path('faireDossier/', views.faireDossier),
     path('dossier/ouvrirDossier/<int:dossier_id>/', views.ouvrirDossier),
-    path('nuage/', views.nuage),
+    path('dossier/ouvrirDossier/<int:dossier_id>/nuage/', views.nuage),
 
 ]
