@@ -8,6 +8,7 @@ urlpatterns = [
     path('DownloadByLiked/', views.usernameFormLiked),
     path('afficher/', views.afficher),
     path('accueil/', views.accueil),
+    path('dossier/', views.dossier),
     path('connexion/', views.connexion),
     path('ajouterUser/', views.ajouterUser),
     path('choixParam/', views.choixParam),
@@ -22,5 +23,7 @@ urlpatterns = [
     path('afficher/taggerphoto/<int:image_id>/', views.tagOneImage),
     path('selection/', views.selection),
     path('chercher/', views.chercher),
+    path('faireDossier/', views.faireDossier),
+    path('dossier/ouvrirDossier/<int:dossier_id>/', views.ouvrirDossier),
 
 ]

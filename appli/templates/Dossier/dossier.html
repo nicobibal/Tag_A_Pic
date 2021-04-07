@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% for dossier in dossiers %}
+{% load static %}
+
+        <div class="col-lg-3 col-md-4 col-6">
+            <a href="ouvrirDossier/{{ dossier.id }}/">
+                <img class="img-fluid img-thumbnail" src="{% static 'img/folder.png'%}" alt="">
+                <p>{{ dossier.nom }}</p>
+            </a>
+
+        </div>
+
+{% empty %}
+    <p>Aucun dossier.</p>
+
+{% endfor %}
+
+
+{% endblock %}
+

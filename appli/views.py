@@ -2,10 +2,9 @@ from django.http import HttpResponse
 from django.shortcuts import render
 
 from appli.forms import ImageForm
+from appli.models.dossier import Dossier
 from appli.models.image import Image
 from appli.models.tag import Tag
-from polls import models
-
 
 def index(request):
     return render(request, 'Importer/import.html')
@@ -34,6 +33,10 @@ def accueil(request):
 
 def connexion(request):
     return render(request, 'Connexion/connexion_vue.html')
+
+def dossier(request):
+    dossiers = Dossier.objects.all()
+    return render(request, 'Dossier/dossier.html',{'dossiers': dossiers})
 
 def ajouterUser(request):
     return render(request, 'GestionUtilisateur/ajouter_utilisateurs_vue.html')
@@ -87,16 +90,32 @@ def selection(request):
     return render(request, 'Selection/selection.html', {'tags':tags})
 
 def chercher(request):
+    global images
     tags = request.POST.getlist('tag')
 
     if request.POST['selectionchoix'] == 'union':
         images=Image.objects.filter(tags__in=tags).distinct()
+
     if request.POST['selectionchoix'] == 'intersection':
         images = Image.objects
         for tag in tags:
             images = images.filter(tags__in=[tag])
+    return render(request, 'Selection/resultatFiltre.html', {'images': images})
+
+def faireDossier(request):
+
+    dossier = Dossier(nom=request.POST['nomDossier'])
+    dossier.save()
+    for image in images:
+        dossier.images.add(image)
 
     return render(request, 'Selection/resultatFiltre.html', {'images': images})
+
+def ouvrirDossier(request, dossier_id):
+    images = Image.objects.filter(dossier__pk=dossier_id)
+    dossier = Dossier.objects.get(pk=dossier_id)
+    return render(request, 'Dossier/ouvrirDossier.html', {'images': images, 'dossier':dossier})
+
 
 
 

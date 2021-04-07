@@ -18,10 +18,14 @@
 {% empty %}
     <p>Aucune Photo.</p>
 
-
-
 {% endfor %}
+
   </div>
+    <form method="post" action="/faireDossier/">{% csrf_token %}
+        <input type="text" name="nomDossier">
+        <input type="hidden" name="images" value="{{ images }}">
+        <input type="submit" value="Mettre ce résultat dans un dossier">
+    </form>
 </div>
 
 {% endblock %}
