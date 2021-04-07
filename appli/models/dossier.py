@@ -7,4 +7,3 @@ class Dossier(models.Model):
 
     nom = models.CharField(max_length=100, default='')
     images = models.ManyToManyField(Image)
-
