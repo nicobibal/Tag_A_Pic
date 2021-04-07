@@ -118,6 +118,9 @@ def ouvrirDossier(request, dossier_id):
 
 
 
+def nuage(request):
+    return render(request, 'Nuage/nuage.html')
+
 
 
 
