@@ -9,7 +9,7 @@ footer,
 body {
     display: block;
     font-family: 'Muli', sans-serif;
-    background-color: #D1F2EB;
+    background-color: #F8EDE5;
 }
 
 .middle {
@@ -22,6 +22,7 @@ body {
 }
 
 .logo {
+    position: absolute;
     top: 50px;
     left: 0;
     font-weight: bold;
@@ -50,7 +51,7 @@ body {
 }
 
 .couleurperso {
-    background-color: #82a3a1!important;
+    background-color: #1E555C!important;
 }
 
 nav {
@@ -72,6 +73,16 @@ nav {
 
 .btnTag {
     flex: 1;
+}
+
+.btn-secondary {
+    background-color: #EDB183;
+    border: 1px solid white;
+    color: black;
+}
+.btn-secondary:hover {
+    background-color: #9AC3C8;
+
 }
 
 .btnParam {
