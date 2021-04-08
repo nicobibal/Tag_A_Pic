@@ -22,13 +22,12 @@
 
     <br><br>
 
-<!-- {% if image in images %} -->
+{% for image in images %}
 {% load static %}
     <div class="class_image">
-        <img src="{% static ''%}{{ image.chemin }}" id="drag1" class="imagenuage" draggable="true" ondragstart="drag(event)" alt="">
+        <img src="{% static ''%}{{ image.chemin }}" id="drag{{ forloop.counter }}" class="imagenuage" draggable="true" ondragstart="drag(event)" alt="">
     </div>
 
-<!-- {% endif %} -->
+{% endfor %}
 </div>
-
 {% endblock %}
