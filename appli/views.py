@@ -1,3 +1,7 @@
+import os
+from pathlib import Path
+
+from PIL import Image as ImageDown
 from django.http import HttpResponse
 from django.shortcuts import render
 
@@ -5,6 +9,7 @@ from appli.forms import ImageForm
 from appli.models.dossier import Dossier
 from appli.models.image import Image
 from appli.models.tag import Tag
+
 
 def index(request):
     return render(request, 'Importer/import.html')
@@ -103,19 +108,38 @@ def chercher(request):
     return render(request, 'Selection/resultatFiltre.html', {'images': images})
 
 def faireDossier(request):
-
-    dossier = Dossier(nom=request.POST['nomDossier'])
+    nom = request.POST['nomDossier'].replace("/","_")
+    dossier = Dossier(nom=nom)
     dossier.save()
     for image in images:
         dossier.images.add(image)
 
     return render(request, 'Selection/resultatFiltre.html', {'images': images})
 
+
+
 def ouvrirDossier(request, dossier_id):
+    i=0
     images = Image.objects.filter(dossier__pk=dossier_id)
     dossier = Dossier.objects.get(pk=dossier_id)
+
+
     return render(request, 'Dossier/ouvrirDossier.html', {'images': images, 'dossier':dossier})
 
+def export(request, dossier_id):
+    dossier = Dossier.objects.get(pk=dossier_id)
+
+    try:
+        os.mkdir(str(Path.home() / "Pictures"/ dossier.nom))
+    except:
+        print("problème")
+    images = Image.objects.filter(dossier__pk=dossier_id)
+    for image in images:
+
+        img = ImageDown.open('appli/static/'+image.chemin)
+        x = image.chemin.split("/",3)
+        img.save(str(Path.home() / "Pictures"/ dossier.nom / x[2]), 'JPEG')
+    return render(request, 'Dossier/ouvrirDossier.html', {'images': images, 'dossier':dossier})
 
 
 def nuage(request, dossier_id):

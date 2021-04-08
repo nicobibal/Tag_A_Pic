@@ -112,3 +112,4 @@ class Image(models.Model):
             image = Image(
                 chemin=cheminImage, username=username)
             image.save()
+
